@@ -8,9 +8,11 @@
   "author": "Jan Kuri <jkuri88@gmail.com>",
   "scripts": {
     "clean": "./scripts/clean.sh",
-    "dev": "tsc --watch",
-    "prepublish": "tsc"
+    "prepublish": "ngc"
   },
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/jkuri/ng2-uploader.git"
@@ -24,13 +26,15 @@
     "uploader"
   ],
   "devDependencies": {
-    "@angular/common": "^2.0.2",
-    "@angular/compiler": "^2.0.2",
-    "@angular/core": "^2.0.2",
-    "core-js": "^2.4.1",
+    "@angular/compiler": "^2.1.1",
+    "@angular/compiler-cli": "^2.1.1",
+    "typescript": "^2.0.3"
+  },
+  "peerDependencies": {
     "reflect-metadata": "^0.1.8",
     "rxjs": "^5.0.0-beta.12",
-    "typescript": "^2.0.3",
+    "@angular/core": "^2.0.2",
+    "core-js": "^2.4.1",
     "zone.js": "^0.6.25"
   }
 }
