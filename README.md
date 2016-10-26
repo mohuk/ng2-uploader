@@ -7,7 +7,7 @@ For demos please see [demos page](http://ng2-uploader.com).
 ### Installation
 
 ```
-npm install ng2-uploader --save
+npm install @mohuk/ng2-uploader --save
 ```
 
 ### Available parameters
@@ -43,12 +43,12 @@ npm install ng2-uploader --save
 
 ````ts
 // app.module.ts
-import { UPLOAD_DIRECTIVES } from 'ng2-uploader/ng2-uploader';
+import { NgFileUploadModule } from '@mohuk/ng2-uploader';
 ...
 @NgModule({
   ...
-  declarations: [
-    UPLOAD_DIRECTIVES
+  imports: [
+    NgFileUploadModule
   ],
   ...
 })
