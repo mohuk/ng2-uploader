@@ -103,11 +103,27 @@ export class NgFileDropDirective {
     });
   }
 
+  filterFilesByMaxSize(): void {
+    this.files = this.files.filter(f => {
+      if (this.options.allowedExtensions.maxSize <= f.size) {
+        return true;
+      }
+
+      this.onUploadRejected.emit({file: f, reason: UploadRejected.MAX_SIZE_EXCEEDED});
+
+      return false;
+    });
+  }
+
   @HostListener('change') onChange(): void {
     this.files = Array.from(this.el.nativeElement.files);
 
     if (this.options.filterExtensions && this.options.allowedExtensions) {
       this.filterFilesByExtension();
+    }
+
+    if(this.options.maxSize) {
+      this.filterFilesByMaxSize();
     }
 
     if (this.files.length) {

@@ -12,12 +12,12 @@ import { Ng2Uploader, UploadRejected } from '../services/ng2-uploader';
   selector: '[ngFileSelect]'
 })
 export class NgFileSelectDirective {
-  
+
   @Input() events: EventEmitter<any>;
   @Output() onUpload: EventEmitter<any> = new EventEmitter();
   @Output() onPreviewData: EventEmitter<any> = new EventEmitter();
   @Output() onUploadRejected: EventEmitter<UploadRejected> = new EventEmitter<UploadRejected>();
-  
+
   _options:any;
 
   get options(): any {
@@ -81,10 +81,26 @@ export class NgFileSelectDirective {
     });
   }
 
+  filterFilesByMaxSize(): void {
+    this.files = this.files.filter(f => {
+      if (this.options.allowedExtensions.maxSize <= f.size) {
+        return true;
+      }
+
+      this.onUploadRejected.emit({file: f, reason: UploadRejected.MAX_SIZE_EXCEEDED});
+
+      return false;
+    });
+  }
+
   @HostListener('change') onChange(): void {
     this.files = Array.from(this.el.nativeElement.files);
     if (this.options.filterExtensions && this.options.allowedExtensions) {
       this.filterFilesByExtension();
+    }
+
+    if(this.options.maxSize) {
+      this.filterFilesByMaxSize();
     }
 
     if (this.files.length) {

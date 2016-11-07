@@ -8,7 +8,8 @@ import { Component, OnInit, NgZone, EventEmitter } from '@angular/core';
           [options]="extendedOptions"
           [events]="uploadEvents"
           (onUpload)="handleUpload($event)"
-          (onPreviewData)="handlePreviewData($event)">
+          (onPreviewData)="handlePreviewData($event)"
+          (onUploadRejected)="handleRejected($event)">
 
     <p *ngIf="previewData && !response">
       <button class="button" (click)="startUpload()">Start Upload</button>
@@ -32,8 +33,9 @@ export class AppComponent implements OnInit {
     calculateSpeed: true,
     filterExtensions: true,
     allowedExtensions: ['image/png', 'image/jpeg'],
-    autoUpload: false,
+    autoUpload: true,
     previewUrl: true,
+    maxSize: 6400,
     data: {
       userId: 12, isAdmin: true
     },
@@ -67,5 +69,9 @@ export class AppComponent implements OnInit {
 
   startUpload() {
     this.uploadEvents.emit('startUpload');
+  }
+
+  handleRejected(data: any) {
+    console.log(data);
   }
 }
