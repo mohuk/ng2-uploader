@@ -3,8 +3,8 @@
   "description": "Angular2 File Uploader",
   "version": "1.1.1",
   "license": "MIT",
-  "main": "./lib/ng2-uploader.js",
-  "typings": "./lib/ng2-uploader.d.ts",
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
   "author": "Jan Kuri <jkuri88@gmail.com>",
   "contributors": [
     "Mohammad Umair Khan <mohammad.umair.k@gmail.com>"
