@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { NgFileDropDirective } from './src/directives/ng-file-drop';
-import { NgFileSelectDirective } from './src/directives/ng-file-select';
-import { Ng2Uploader } from './src/services/ng2-uploader';
+import { NgFileDropDirective } from './directives/ng-file-drop';
+import { NgFileSelectDirective } from './directives/ng-file-select';
+import { Ng2Uploader } from './services/ng2-uploader';
 
 @NgModule({
   declarations: [
