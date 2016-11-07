@@ -105,7 +105,7 @@ export class NgFileDropDirective {
 
   filterFilesByMaxSize(): void {
     this.files = this.files.filter(f => {
-      if (this.options.allowedExtensions.maxSize <= f.size) {
+      if (f.size <= this.options.maxSize) {
         return true;
       }
 
