@@ -24,6 +24,7 @@ npm install @mohuk/ng2-uploader --save
 | fieldReset     | true/false
 | authToken      | 012313asdadklj123123 |
 | authTokenPrefix | 'Bearer' (default) |
+| maxSize | 64000 (Bytes) |
 
 **All parameters except `url` are optional.**
 
